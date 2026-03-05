@@ -1,7 +1,5 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
 
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -13,7 +11,10 @@ import imageRoutes from "./routes/image.routes.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://sprinkled-cpu.github.io"],
+  credentials: true
+}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -27,15 +28,5 @@ app.use("/api/ai", aiRoutes);
 app.use("/api/roadmaps", roadmapRoutes);
 app.use("/api/progress", progressRoutes);
 app.use("/api/images", imageRoutes);
-
-// Serve frontend static files in production
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-app.use(express.static(path.join(__dirname, "../../Client/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../Client/dist/index.html"));
-});
 
 export default app;

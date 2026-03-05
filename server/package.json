@@ -5,8 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "build": "npm install --prefix ../Client && npm run build --prefix ../Client"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
