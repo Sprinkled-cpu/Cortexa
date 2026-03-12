@@ -11,7 +11,7 @@ import ErrorBoundary from "./components/ErrorBoundary.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <BrowserRouter basename="/Cortexa">
+      <BrowserRouter>
         <AuthProvider>
           <ToastProvider>
             <App />
