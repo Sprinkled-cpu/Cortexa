@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://Sprinkled-cpu.github.io/Cortexa",
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && node -e \"require('fs').copyFileSync('dist/index.html', 'dist/404.html')\"",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
