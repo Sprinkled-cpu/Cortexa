@@ -12,7 +12,11 @@ import imageRoutes from "./routes/image.routes.js";
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://sprinkled-cpu.github.io"],
+  origin: [
+    "http://localhost:5173",
+    "https://sprinkled-cpu.github.io",
+    /^https:\/\/.*\.vercel\.app$/
+  ],
   credentials: true
 }));
 app.use(express.json());
